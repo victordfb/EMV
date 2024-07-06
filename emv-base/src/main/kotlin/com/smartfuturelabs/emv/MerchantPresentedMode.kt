@@ -13,7 +13,9 @@ class MerchantPresentedMode {
     }
 
     fun generateCode(): String {
-        val code = this.dataObjects.joinToString(separator = "") { it.generateCode() } + "6304"
+        val code = this.dataObjects
+            .sortedBy { it.getId() }
+            .joinToString(separator = "") { it.generateCode() } + "6304"
         val crc16 = crc16(code.toByteArray())
         val crcCode = String.format("%04X", crc16)
         return "$code$crcCode"

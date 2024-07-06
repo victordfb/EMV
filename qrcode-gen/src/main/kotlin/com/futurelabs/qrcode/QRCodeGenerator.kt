@@ -7,7 +7,6 @@ import com.google.zxing.client.j2se.MatrixToImageWriter
 import com.google.zxing.common.BitMatrix
 import com.google.zxing.qrcode.QRCodeWriter
 import java.io.IOException
-import java.math.BigDecimal
 import java.nio.file.FileSystems
 import java.nio.file.Path
 
@@ -30,10 +29,4 @@ class QRCodeGenerator(
         val path: Path = FileSystems.getDefault().getPath(filePath)
         MatrixToImageWriter.writeToPath(bitMatrix, "PNG", path)
     }
-}
-
-fun main() {
-    val brCode =  BRCode(BigDecimal("150"), "MARIA DA SILVA", "27033479018", "SAO PAULO")
-    val generator = QRCodeGenerator(brCode, "./qr_code.png", 350)
-    generator.generate()
 }
