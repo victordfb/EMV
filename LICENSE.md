@@ -1,4 +1,4 @@
-### LICENSE.txt
+### LICENSE
 
 ```plaintext
 # GNU Affero General Public License v3.0
