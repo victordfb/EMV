@@ -1,9 +1,8 @@
 package com.futurelabs.qrcode.gui
 
-import com.futurelabs.brcode.BRCode
+import com.futurelabs.brcode.builders.BRCodeBuilder
 import com.futurelabs.qrcode.QRCodeGenerator
 import java.io.File
-import java.math.BigDecimal
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
@@ -20,7 +19,12 @@ class PixImageGeneratorController {
 
     fun generateQRCodeImage(pixKey: String, name: String, city: String, value: String) {
         val imageUrl = this.imageUrl()
-        val brCode = BRCode(BigDecimal(value), name, pixKey, city)
+        val brCode = BRCodeBuilder.newBuilder()
+            .setValue(value)
+            .setMerchantName(name)
+            .setPixKey(pixKey)
+            .setCity(city)
+            .build()
         val generator = QRCodeGenerator(brCode, imageUrl, 350)
         generator.generate()
         this.action(imageUrl)
