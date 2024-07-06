@@ -18,6 +18,11 @@ Compatible with Java and Kotlin.
 
 ```Kotlin
 // Example of PIX QR Code generation
-val brCode =  BRCode(BigDecimal("150"), "MARIA DA SILVA", "27033479018", "SAO PAULO")
+val brCode = BRCodeBuilder.newBuilder()
+            .setMerchantName("MARIA DA SILVA")
+            .setPixKey("27033479018")
+            .setCity("SAO PAULO")
+            .setValue("200.20")
+            .build()
 val generator = QRCodeGenerator(brCode, "./qr_code.png", 350)
 generator.generate()
