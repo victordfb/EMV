@@ -11,7 +11,7 @@ repositories {
 }
 
 dependencies {
-    api(project(":core"))
+    api(project(":emv-base"))
 
     testImplementation(kotlin("test"))
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.10.0")

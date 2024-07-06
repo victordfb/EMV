@@ -1,4 +1,4 @@
-package com.smartfuturelabs.emv
+package com.smartfuturelabs.emvcore
 
 abstract class DataObject {
 

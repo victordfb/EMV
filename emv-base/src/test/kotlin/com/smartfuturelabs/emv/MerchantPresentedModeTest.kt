@@ -1,5 +1,7 @@
 package com.smartfuturelabs.emv
 
+import com.smartfuturelabs.emvcore.BasicDataObject
+import com.smartfuturelabs.emvcore.ComposedDataObject
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
