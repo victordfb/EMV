@@ -1,15 +1,20 @@
-package com.futurelabs.qrcode
+package com.futurelabs.qrcode.gui
 
 import java.awt.BorderLayout
 import java.awt.GridBagConstraints
 import java.awt.GridBagLayout
 import java.awt.Insets
+import java.io.File
+import javax.imageio.ImageIO
 import javax.swing.*
 
+val controller = PixImageGeneratorController()
+
 fun createAndShowGUI() {
-    val frame = JFrame("Pix generator")
+    val frame = JFrame("Pix QRCode generator")
     frame.defaultCloseOperation = JFrame.EXIT_ON_CLOSE
     frame.setSize(800, 600)
+    frame.setLocation(650, 250)
 
     // Left Panel with Labels, TextFields and a Button
     val leftPanel = JPanel()
@@ -17,7 +22,7 @@ fun createAndShowGUI() {
     val gbc = GridBagConstraints()
     gbc.insets = Insets(5, 5, 5, 5)
 
-    val labels = arrayOf("Pix:", "Nome:", "Cidade:", "Valor:")
+    val labels = arrayOf("Chave Pix:", "Nome:", "Cidade:", "Valor:")
     val textFields = Array(4) { JTextField(15) }
 
     for (i in labels.indices) {
@@ -37,13 +42,20 @@ fun createAndShowGUI() {
     gbc.gridwidth = 2
     gbc.anchor = GridBagConstraints.CENTER
     leftPanel.add(button, gbc)
+    button.addActionListener {
+        val texts = textFields.map { it.getText() }.toTypedArray()
+        controller.generateQRCodeImage(texts[0], texts[1], texts[2], texts[3])
+    }
 
     // Right Panel with an Image
     val rightPanel = JPanel()
-    val imageIcon = ImageIcon("./qrcode-gen/qr_codes/qr_code.png") // Replace with your image path
-    val imageLabel = JLabel(imageIcon)
+    val imageLabel = JLabel()
     rightPanel.layout = BorderLayout()
     rightPanel.add(imageLabel, BorderLayout.CENTER)
+    controller.onQRCodeUpdate { url ->
+        val image = ImageIO.read(File(url))
+        imageLabel.icon = ImageIcon(image)
+    }
 
     // Split Pane
     val splitPane = JSplitPane(JSplitPane.HORIZONTAL_SPLIT, leftPanel, rightPanel)
