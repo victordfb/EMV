@@ -19,6 +19,5 @@ Compatible with Java and Kotlin.
 ```Kotlin
 // Example of PIX QR Code generation
 val brCode =  BRCode(BigDecimal("150"), "MARIA DA SILVA", "27033479018", "SAO PAULO")
-
-cd yourprojectname
-./install.sh
+val generator = QRCodeGenerator(brCode, "./qr_code.png", 350)
+generator.generate()
