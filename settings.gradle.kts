@@ -5,3 +5,4 @@ rootProject.name = "emv-brcode"
 include("core")
 include("br-code")
 include("qrcode-gen")
+include("emv-base")

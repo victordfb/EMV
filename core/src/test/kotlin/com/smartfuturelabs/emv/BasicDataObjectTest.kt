@@ -1,5 +1,6 @@
 package com.smartfuturelabs.emv
 
+import com.smartfuturelabs.emvcore.BasicDataObject
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments

@@ -1,5 +1,6 @@
 package com.smartfuturelabs.emv
 
+import com.smartfuturelabs.emvcore.DataObject
 import com.smartfuturelabs.utils.crc16
 
 

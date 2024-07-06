@@ -1,4 +1,4 @@
-package com.smartfuturelabs.emv
+package com.smartfuturelabs.emvcore
 
 open class ComposedDataObject(
     private val id: String

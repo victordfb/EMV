@@ -1,8 +1,9 @@
 package com.futurelabs.brcode
 
-import com.smartfuturelabs.emv.BasicDataObject
-import com.smartfuturelabs.emv.ComposedDataObject
 import com.smartfuturelabs.emv.MerchantPresentedMode
+import com.smartfuturelabs.emvcore.BasicDataObject
+import com.smartfuturelabs.emvcore.ComposedDataObject
+
 import java.math.BigDecimal
 import java.text.NumberFormat
 import java.util.*
