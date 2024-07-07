@@ -17,12 +17,12 @@ class PixImageGeneratorController {
         this.copyWaitingImg()
     }
 
-    fun generateQRCodeImage(pixKey: String, name: String, city: String, value: String) {
+    fun generateQRCodeImage(keyType: String, pixKey: String, name: String, city: String, value: String) {
         val imageUrl = this.imageUrl()
         val brCode = BRCodeBuilder.newBuilder()
             .setValue(value)
             .setMerchantName(name)
-            .setPixKey(pixKey)
+            .setPixKey(keyType, pixKey)
             .setCity(city)
             .build()
         val generator = QRCodeGenerator(brCode, imageUrl, 350)

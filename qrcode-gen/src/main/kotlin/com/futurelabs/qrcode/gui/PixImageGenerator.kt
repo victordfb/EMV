@@ -22,8 +22,8 @@ fun createAndShowGUI() {
     val gbc = GridBagConstraints()
     gbc.insets = Insets(5, 5, 5, 5)
 
-    val labels = arrayOf("Chave Pix:", "Nome:", "Cidade:", "Valor:")
-    val textFields = Array(4) { JTextField(15) }
+    val labels = arrayOf("Tipo chave", "Chave Pix:", "Nome:", "Cidade:", "Valor:")
+    val textFields = Array(labels.size) { JTextField(15) }
 
     for (i in labels.indices) {
         gbc.gridx = 0
@@ -36,7 +36,7 @@ fun createAndShowGUI() {
         leftPanel.add(textFields[i], gbc)
     }
 
-    val button = JButton("Submit")
+    val button = JButton("Gerar QRCode")
     gbc.gridx = 0
     gbc.gridy = labels.size
     gbc.gridwidth = 2
@@ -44,7 +44,7 @@ fun createAndShowGUI() {
     leftPanel.add(button, gbc)
     button.addActionListener {
         val texts = textFields.map { it.getText() }.toTypedArray()
-        controller.generateQRCodeImage(texts[0], texts[1], texts[2], texts[3])
+        controller.generateQRCodeImage(texts[0], texts[1], texts[2], texts[3], texts[4])
     }
 
     // Right Panel with an Image

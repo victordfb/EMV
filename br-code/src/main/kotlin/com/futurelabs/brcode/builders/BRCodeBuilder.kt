@@ -15,8 +15,12 @@ class BRCodeBuilder {
         return this
     }
 
-    fun setPixKey(pixKey: String): BRCodeBuilder {
-        this.pixKey = Cpf.of(pixKey)
+    fun setPixKey(keyType: String, pixKey: String): BRCodeBuilder {
+        when (keyType.trim().lowercase()) {
+            "cpf" -> this.pixKey = Cpf.of(pixKey)
+            "email" -> this.pixKey = Email.of(pixKey)
+            else -> Unit
+        }
         return this
     }
 
