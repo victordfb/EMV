@@ -1,6 +1,7 @@
 # EMV--BR_Code
 
 [![AGPL License](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
+![main](https://github.com/victordfb/EMV--BR-Code/actions/workflows/gradle.yml/badge.svg)
 
 ## Description
 
