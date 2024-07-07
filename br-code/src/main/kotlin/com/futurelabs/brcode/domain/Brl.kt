@@ -13,7 +13,7 @@ class Brl private constructor(
         val numberFormat = NumberFormat.getNumberInstance(Locale.US)
         numberFormat.minimumFractionDigits = 2
         numberFormat.maximumFractionDigits = 2
-        return numberFormat.format(this.value)
+        return numberFormat.format(this.value).replace(",", "")
     }
 
     companion object {
