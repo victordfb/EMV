@@ -1,19 +1,5 @@
 package com.smartfuturelabs.utils
 
-/**
- * Information technology—Telecommunications and information exchange between
- * systems—High-level data link control (HDLC) procedures.
- *
- * The checksum shall be calculated according to [ISO/IEC 13239] using the
- * polynomial '1021' (hex) and initial value 'FFFF' (hex).
- *
- * Implements CRC-16/CCITT-FALSE
- *
- * @see "https://en.wikipedia.org/wiki/Cyclic_redundancy_check"
- *
- * @param byteArray
- * @return CRC16 integer
- */
 fun crc16(byteArray: ByteArray): Int {
     val polynomial = 0x1021
     var result = 0xFFFF
